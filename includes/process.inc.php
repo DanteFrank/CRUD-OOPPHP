@@ -12,7 +12,8 @@ if (isset($_POST['submit'])) {
     );
 
     if ($dataObj->insertRecord('food', $dataArray)) {
-        header('location:index.php?msg=Succesful');
+        header('Location:../index.php?msg=Succesful');
+        exit();
     }
     
 }

@@ -7,7 +7,8 @@ class DataOperation extends Db {
         $sql .= "INSERT INTO ".$table;
         $sql .= " (".implode(",", array_keys($fields)).") VALUES ";
         $sql .= "('".implode("','", array_values($fields))."')";
-        $query = $this->connect()->execute([$table, $fields]);
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
     
     }
 }
