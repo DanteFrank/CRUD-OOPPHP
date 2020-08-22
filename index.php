@@ -85,16 +85,29 @@ include 'includes/class-autoload.inc.php';
                         <th>&nbsp;</th>
                         <th>&nbsp;</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Rice</td>
-                        <td><b>20</b></td>
-                        <td><a href="#" class="btn btn-info">Edit</a></td>
-                        <td><a href="#" class="btn btn-danger">Delete</a></td>
-                    </tr>
+                    <?php
+                        $obj = new DataOperation();
+                        $records = $obj->fetchRecord("food");
+                        foreach ($records as $row) {
+                            ?> 
+                            <!-- Break Point  -->
+                            <tr>
+                                <td><?php echo $row['id']; ?></td>
+                                <td><?php echo $row['food_item']; ?></td>
+                                <td><b><?php echo $row['qty']; ?></b></td>
+                                <td><a href="#" class="btn btn-info">Edit</a></td>
+                                <td><a href="#" class="btn btn-danger">Delete</a></td>
+                            </tr>
+                        }
+
+                    ?>
+                    
                 </table>
             </div>
         </div>
     </div>
 </body>
 </html>
+<?php
+}
+?>
